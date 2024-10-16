@@ -1,14 +1,22 @@
-import { Routes, Route, Link } from "react-router-dom";
-import Home from './components/Home';   // Import Home component
-import Blue from './components/Blue';   // Import Blue component
-import Red from './components/Red';     // Import Red component
+import React from "react";
+import ReactDOM from "react-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+import Home from "./Components/Home";
+import Blue from "./Components/Blue";
+import Red from "./Components/Red";
 
 function App() {
   return (
-    <div>
+    <BrowserRouter>
       <div id="navbar">
         <Link to="/">Home</Link> | 
-        <Link to="/blue">Blue</Link> | 
+        <Link to="/blue">Blue</Link>
+ | 
         <Link to="/red">Red</Link>
       </div>
       <div id="main-section">
@@ -18,8 +26,10 @@ function App() {
           <Route path="/red" element={<Red />} />
         </Routes>
       </div>
-    </div>
+    </BrowserRouter>
   );
 }
+
+ReactDOM.render(<App />, document.getElementById("root"));
 
 export default App;
